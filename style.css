@@ -1,0 +1,101 @@
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --header: #2c3e50;
+  --toolbar: #ecf0f1;
+  --button-bg: #3498db;
+  --button-hover: #2980b9;
+}
+
+body.dark {
+  --bg: #1e1e1e;
+  --text: #f0f0f0;
+  --header: #111;
+  --toolbar: #2c2c2c;
+  --button-bg: #555;
+  --button-hover: #777;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  background: var(--header);
+  color: white;
+  padding: 15px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  background: var(--toolbar);
+  overflow-x: auto;
+  padding: 5px;
+}
+
+.tab {
+  padding: 8px 15px;
+  margin: 0 4px;
+  background: var(--button-bg);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab.active {
+  background: #1abc9c;
+}
+
+.toolbar {
+  background: var(--toolbar);
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.toolbar button, .toolbar select {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  background: var(--button-bg);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.toolbar button:hover, .toolbar select:hover {
+  background: var(--button-hover);
+}
+
+textarea {
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  resize: none;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+.status-bar {
+  background: var(--toolbar);
+  padding: 8px 15px;
+  font-size: 14px;
+  text-align: right;
+}

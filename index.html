@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tabbed Notepad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <header>🗂️ Tabbed Notepad</header>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div class="toolbar">
+    <button onclick="newNote()">➕ New Note</button>
+    <button onclick="renameNote()">✏️ Rename</button>
+    <button onclick="deleteNote()">🗑️ Delete</button>
+    <button onclick="saveText()">💾 Save TXT</button>
+    <button onclick="savePDF()">📄 Save PDF</button>
+    <button onclick="toggleDarkMode()">🌗 Dark Mode</button>
+    <select onchange="changeFontSize(this.value)">
+      <option value="14">Font 14px</option>
+      <option value="16" selected>Font 16px</option>
+      <option value="18">Font 18px</option>
+      <option value="20">Font 20px</option>
+    </select>
+  </div>
+
+  <textarea id="notepad" placeholder="Start typing..."></textarea>
+  <div class="status-bar" id="status">Words: 0 | Characters: 0</div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('Service worker registered.'))
+          .catch(err => console.error('SW registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
